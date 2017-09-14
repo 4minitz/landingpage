@@ -1,0 +1,62 @@
+.btn{
+    white-space:normal !important;
+    word-wrap: break-word;
+}
+
+.btn-4minitz, .btn-4minitz:active, .btn-4minitz:visited {
+    background-color: teal !important;
+    color: white;
+}
+
+.btn-4minitz:hover {
+    background-color: #004b4b !important;
+    color: white !important;
+}
+
+ul.featurelist, ul.featurelist2 {
+    font-size: 14pt;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+}
+
+ul.featurelist li:before {
+    content: "✔";
+    display: block;
+    float: left;
+    width: 1.2em;
+}
+ul.featurelist2 li:before {
+    content: "-";
+    display: block;
+    float: left;
+    width: 1.2em;
+}
+
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    20%, 60% {
+        transform: rotate(-25deg)
+    }
+    40%, 80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
+}

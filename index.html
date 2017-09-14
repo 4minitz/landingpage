@@ -7,72 +7,36 @@
     <title>4Minitz.com - Meeting Minutes WebApp (Free and Open-Source)</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
 
-    <style>
-    .btn{
-        white-space:normal !important;
-        word-wrap: break-word;
-    }
-
-    .btn-4minitz, .btn-4minitz:active, .btn-4minitz:visited {
-        background-color: teal !important;
-        color: white;
-    }
-
-    .btn-4minitz:hover {
-        background-color: #004b4b !important;
-        color: white !important;
-    }
-
-    ul.featurelist, ul.featurelist2 {
-        font-size: 14pt;
-        list-style: none;
-        margin-left: 0;
-        padding-left: 1.2em;
-        text-indent: -1.2em;
-    }
-
-    ul.featurelist li:before {
-        content: "✔";
-        display: block;
-        float: left;
-        width: 1.2em;
-    }
-    ul.featurelist2 li:before {
-        content: "-";
-        display: block;
-        float: left;
-        width: 1.2em;
-    }
-
-
-    .github-corner:hover .octo-arm {
-        animation: octocat-wave 560ms ease-in-out
-    }
-
-    @keyframes octocat-wave {
-        0%, 100% {
-            transform: rotate(0)
-        }
-        20%, 60% {
-            transform: rotate(-25deg)
-        }
-        40%, 80% {
-            transform: rotate(10deg)
-        }
-    }
-
-    @media (max-width: 500px) {
-        .github-corner:hover .octo-arm {
-            animation: none
-        }
-
-        .github-corner .octo-arm {
-            animation: octocat-wave 560ms ease-in-out
-        }
-    }
-    </style>
 </head>
+<script>
+    function httpGetAsync(theUrl, callback)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+                callback(xmlHttp.responseText);
+        };
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        const url = 'https://www.4minitz.com/version/updatecheck/landingpage/0.0';
+        httpGetAsync(url, function(responsetext) {
+            var tag = JSON.parse(responsetext);
+            var version = undefined;
+            if (tag.hasOwnProperty("tag")) {
+                version = tag.tag;
+            }
+            console.log("4Minitz Version: >"+version+"<");
+            if (version) {
+                document.getElementById("4mversion").textContent="Current Stable Version: v"+version;
+            }
+        });
+    });
+</script>
 <body style="background-color: teal; font-family: Verdana, Helvetica, Arial,sans-serif; color: teal;">
 
 <div class="container">
@@ -81,6 +45,7 @@
             <div class="col-md-12" style="text-align: center;">
                 <img src="4minitz_Logo256x256_transparent.png" width="128px"><br>
                 <h1><b>4Minitz!</b></h1>
+                <a id="4mversion" href="https://github.com/4minitz/4minitz/releases"></a>
                 <h2>Simply <span style="text-decoration: line-through">the best</span> a decent free webapp for taking meeting minutes</h2>
                 <h3>● Prepare Agenda ● Document Minutes ● Track Topics ●</h3>
                 <p style="font-size: 120%;">Every invited & logged in user can watch changes to the current meeting minutes in real time.</p>
@@ -253,6 +218,7 @@
                     <li>Free &amp; open source software: host your own!</li>
                     <li>Very open <a href="https://github.com/4minitz/4minitz/blob/develop/LICENSE.md">
                         MIT License</a></li>
+                    <li>Built with <a href="https://www.meteor.com">Meteor JS</a></li>
                     <li>Only two external dependencies: Node.js and MongoDB</li>
                     <li>Browser compatibility: current Chrome, Firefox, Safari, Edge
                         <ul class="featurelist">
