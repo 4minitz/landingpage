@@ -86,6 +86,11 @@
             </div>
         </div>
 
+<div style="text-align: center; margin-top: 2em;">
+    <a href="https://www.buymeacoffee.com/4Minitz" target="_blank">
+        <img class="highlight_on_hover" src="buymeacoffee_teal_50p.png" style="width: 374px; max-width: 100%;">
+    </a>
+</div>
 
         <div class="row" style="margin-top: 3em;">
             <div class="col-md-4">
@@ -169,7 +174,8 @@ function hover_out()
 </script>
             <div class="xembed-responsive xembed-responsive-16by9">
                 <a href="https://www.youtube.com/watch?v=v28q6AaEySQ">
-                    <img id="youtubethumb" src="youtube_4min_1.png" onmouseenter="hover_in();" onmouseleave="hover_out();">
+                    <img class="highlight_on_hover" id="youtubethumb" src="youtube_4min_1.png" onmouseenter="hover_in();" onmouseleave="hover_out();"
+                    style="max-width:900px; width: 100%;">
                 </a>
             </div>
         </div>
@@ -180,7 +186,7 @@ function hover_out()
         <div class="row" style="margin-top: 2em; text-align: center;">
             <h3>4Minitz Screen Shot</h3>
             (Click image to enlarge)
-            <a href="4minitz_screenshot.png"><img src="4minitz_screenshot.png" width="100%"></a>
+            <a href="4minitz_screenshot.png"><img class="highlight_on_hover" src="4minitz_screenshot.png" width="100%"></a>
         </div>
     </div>
 
